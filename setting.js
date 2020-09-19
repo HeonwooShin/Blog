@@ -1,9 +1,12 @@
-const backgroundBtn = document.querySelector(".background-btn");
-const textBtn = document.querySelector(".text-btn");
-const backgroundDiv = document.querySelector(".background-set");
-const textDiv = document.querySelector(".text-set");
+const backgroundBtn = document.querySelector(".background-btn")
+    textBtn = document.querySelector(".text-btn")
+    backgroundDiv = document.querySelector(".background-set")
+    textDiv = document.querySelector(".text-set")
 
 const images = document.querySelectorAll("img");
+
+const backgroundClass = backgroundDiv.classList,
+    textClass = textDiv.classList;
 
 const family1 = document.getElementById("1"),
     family2 = document.getElementById("2"),
@@ -12,8 +15,25 @@ const family1 = document.getElementById("1"),
     family5 = document.getElementById("5")
     body = document.querySelector("body");
 
-const backgroundClass = backgroundDiv.classList,
-    textClass = textDiv.classList;
+const colorInput = document.getElementById('color');
+colorInput.addEventListener('input', colorChange);
+
+function colorChange() {
+    body.style.color = colorInput.value;
+}
+
+const shadowInput = document.getElementById("shadow");
+shadowInput.addEventListener('click', setShadow);
+
+function setShadow() {
+    if(shadowInput.checked == true) {
+        body.style.textShadow = '0 0 5px black';
+    } else {
+        body.style.textShadow = '';
+    }
+}
+
+
 
 function displayBgSet() {
     backgroundClass.remove("hidden");
